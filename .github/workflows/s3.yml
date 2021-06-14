@@ -1,0 +1,25 @@
+name: Deploy to S3
+
+on:
+  pull_request:
+    branches: [ main ]
+
+build:
+  runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Yarn Install and Build
+        run: |
+          yarn install
+          yarn build
+
+      - name: Deploy S3 Website
+        uses: danburtenshaw/s3-website-pr-action@v2
+        with:
+          bucket-prefix: "example-app"
+          folder-to-copy: "./dist"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
