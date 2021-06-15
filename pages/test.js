@@ -13,10 +13,10 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to Test Page
         </h1>
 
-       <p>Test CD ----</p>
+       <p>Testing testing 123</p>
       </main>
 
       <footer className={styles.footer}>
