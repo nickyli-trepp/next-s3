@@ -9,4 +9,4 @@ phases:
       - yarn build
   post_build:
     commands:
-      - aws s3 sync ./out s3://next-s3
+      - aws s3 sync ./out s3://next-s3-bucket
