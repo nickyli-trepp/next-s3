@@ -7,7 +7,6 @@ phases:
   build:
     commands:
       - yarn build
-  artifacts:
-    files:
-      - '**/*'
-    base-directory: 'out'
+  post_build:
+    commands:
+      - aws s3 sync out $S3_BUCKET 
